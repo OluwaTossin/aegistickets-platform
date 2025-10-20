@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import EventList from './components/EventList'
 import EventDetail from './components/EventDetail'
 import Basket from './components/Basket'
-import './App.css'
+import './index.css'
 
 function App() {
   const [basket, setBasket] = useState([])

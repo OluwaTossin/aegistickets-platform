@@ -1,7 +1,7 @@
 # Dev environment values for frontend
 image:
-  repository: <ACCOUNT_ID>.dkr.ecr.eu-west-1.amazonaws.com/aegistickets-lite/frontend
-  tag: "sha-<GIT_SHA>"
+  repository: 455921291596.dkr.ecr.eu-west-1.amazonaws.com/aegistickets-lite/frontend
+  tag: "sha-5dffe2e"
 
 replicaCount: 1
 
