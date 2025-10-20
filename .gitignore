@@ -45,3 +45,4 @@ secrets/
 # Ignore local env files
 .env
 .env.local
+app/backend/venv/
