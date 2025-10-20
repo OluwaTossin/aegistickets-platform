@@ -1,0 +1,19 @@
+# Dev environment values for backend
+image:
+  repository: <ACCOUNT_ID>.dkr.ecr.eu-west-1.amazonaws.com/aegistickets-lite/backend
+  tag: "sha-<GIT_SHA>"
+
+replicaCount: 2
+
+resources:
+  requests:
+    cpu: 150m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5

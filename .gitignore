@@ -1,0 +1,47 @@
+# Ignore Terraform files
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+.terraform.lock.hcl
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Ignore Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore Docker files
+.dockerignore
+
+# Ignore k6 output
+k6-results/
+
+# Ignore macOS files
+.DS_Store
+
+# Ignore sensitive files
+*.pem
+*.key
+secrets/
+
+# Ignore local env files
+.env
+.env.local

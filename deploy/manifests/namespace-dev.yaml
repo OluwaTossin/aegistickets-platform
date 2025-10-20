@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tickets-dev
+  labels:
+    name: tickets-dev
+    environment: dev
+    project: aegistickets
+
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: defaults
+  namespace: tickets-dev
+spec:
+  limits:
+  - type: Container
+    default:
+      cpu: "300m"
+      memory: "256Mi"
+    defaultRequest:
+      cpu: "100m"
+      memory: "128Mi"
+    max:
+      cpu: "2"
+      memory: "2Gi"
+    min:
+      cpu: "50m"
+      memory: "64Mi"
+
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-quota
+  namespace: tickets-dev
+spec:
+  hard:
+    requests.cpu: "2"
+    requests.memory: "2Gi"
+    limits.cpu: "4"
+    limits.memory: "4Gi"
+    pods: "20"
+    services.loadbalancers: "2"
+    persistentvolumeclaims: "5"
