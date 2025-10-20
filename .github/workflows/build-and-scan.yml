@@ -42,7 +42,7 @@ jobs:
         if: matrix.service == 'frontend'
         run: |
           cd app/frontend
-          npm ci
+          npm install
           npm test -- --run --coverage
 
       - name: Run tests - Backend
