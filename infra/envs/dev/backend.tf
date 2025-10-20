@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = "tf-state-aegistickets"
-    key            = "dev/terraform.tfstate"
+    bucket         = "aegis-tickets-tfstate-dev"
+    key            = "terraform.tfstate"
     region         = "eu-west-1"
-    dynamodb_table = "tf-locks-aegistickets"
+    dynamodb_table = "aegis-tickets-tfstate-lock-dev"
     encrypt        = true
   }
 }

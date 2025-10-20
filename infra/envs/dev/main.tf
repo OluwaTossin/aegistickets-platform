@@ -25,7 +25,7 @@ module "eks" {
   node_group_min_size      = 1
   node_group_max_size      = 3
   node_group_desired_size  = 2
-  node_instance_types      = ["t3.medium"]
+  node_instance_types      = ["m7i-flex.large"]  # Free tier: 2 vCPU, 8GB RAM - Perfect for EKS!
 
   tags = local.common_tags
 }
@@ -85,15 +85,16 @@ module "external_secrets" {
 }
 
 # Monitoring Stack (Prometheus + Grafana)
-module "monitoring" {
-  source = "../../modules/monitoring"
-
-  prometheus_retention         = "36h"
-  prometheus_retention_size    = "8GB"
-  enable_prometheus_persistence = false
-  grafana_admin_password       = var.grafana_admin_password
-  enable_grafana_persistence   = false
-  eks_cluster_ready            = module.eks.cluster_id
-
-  depends_on = [module.eks]
-}
+# Temporarily disabled - will install manually with helm after cluster is ready
+# module "monitoring" {
+#   source = "../../modules/monitoring"
+# 
+#   prometheus_retention         = "36h"
+#   prometheus_retention_size    = "8GB"
+#   enable_prometheus_persistence = false
+#   grafana_admin_password       = var.grafana_admin_password
+#   enable_grafana_persistence   = false
+#   eks_cluster_ready            = module.eks.cluster_id
+# 
+#   depends_on = [module.eks]
+# }

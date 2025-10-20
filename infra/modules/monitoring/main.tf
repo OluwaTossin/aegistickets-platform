@@ -12,6 +12,10 @@ resource "helm_release" "kube_prometheus_stack" {
   chart      = "kube-prometheus-stack"
   namespace  = kubernetes_namespace.monitoring.metadata[0].name
   version    = var.chart_version
+  
+  timeout    = 900  # Increased to 15 minutes
+  wait       = true
+  wait_for_jobs = true
 
   values = [
     yamlencode({

@@ -30,10 +30,10 @@ output "rds_secret_arn" {
   value       = module.rds.secret_arn
 }
 
-output "monitoring_namespace" {
-  description = "Namespace where monitoring stack is deployed"
-  value       = module.monitoring.namespace
-}
+# output "monitoring_namespace" {
+#   description = "Namespace where monitoring stack is deployed"
+#   value       = module.monitoring.namespace
+# }
 
 output "configure_kubectl" {
   description = "Command to configure kubectl"
