@@ -4,6 +4,33 @@
 
 A comprehensive event ticketing application built to showcase SRE best practices, observability-driven development, and production-ready Kubernetes deployments on AWS.
 
+## ✅ Current Deployment Status
+
+**Environment**: Development (eu-west-1)  
+**Status**: ✅ Deployed and Load Tested  
+**Application URL**: http://k8s-ticketsd-ticketsi-af8913317e-175346924.eu-west-1.elb.amazonaws.com
+
+### Infrastructure
+- **EKS Cluster**: tickets-dev (2 m7i-flex.large nodes)
+- **RDS PostgreSQL**: tickets-dev-db (db.t3.micro, Multi-AZ)
+- **Application**: Backend (2 pods) + Frontend (1 pod) - All healthy
+- **Monitoring**: kube-prometheus-stack v67.6.1 (Prometheus + Grafana + Alertmanager)
+
+### SLO Compliance Results
+| Metric | Target | Actual | Status |
+|--------|--------|--------|--------|
+| **Availability** | ≥99.9% | 99.97% | ✅ Exceeds by 0.07% |
+| **P95 Latency** | ≤800ms | 111ms | ✅ 86% better |
+| **Error Rate** | <1% | 0.03% | ✅ 97% better |
+
+**Load Test Summary**: Sustained 86 req/s under 100 concurrent users for 7 minutes with zero pod restarts.
+
+📄 See [DEPLOYMENT_SUMMARY.md](DEPLOYMENT_SUMMARY.md) for full deployment details.  
+📄 See [PERFORMANCE_REPORT.md](PERFORMANCE_REPORT.md) for comprehensive performance analysis.  
+📄 See [GRAFANA_GUIDE.md](GRAFANA_GUIDE.md) for monitoring dashboard access.
+
+---
+
 ## 🎯 Project Objectives
 
 - Implement **Golden Signals** (Latency, Traffic, Errors, Saturation) instrumentation
